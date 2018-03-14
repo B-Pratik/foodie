@@ -19,5 +19,34 @@
   "bugs": {
     "url": "https://github.com/B-Pratik/foodie/issues"
   },
-  "homepage": "https://github.com/B-Pratik/foodie#readme"
+  "homepage": "https://github.com/B-Pratik/foodie#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "autoprefixer": "^8.1.0",
+    "babel-loader": "^8.0.0-beta.2",
+    "base64-font-loader": "0.0.4",
+    "css-loader": "^0.28.10",
+    "del": "^3.0.0",
+    "eslint": "^4.18.2",
+    "eslint-config-google": "^0.9.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "gulp": "^3.9.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.0.6",
+    "opener": "^1.4.3",
+    "postcss-loader": "^2.1.1",
+    "precss": "^3.1.2",
+    "run-sequence": "^2.2.1",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.1.1",
+    "yargs": "^11.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "serve-favicon": "^2.4.5",
+    "serve-static": "^1.13.2"
+  }
 }
