@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,34 @@
 	<title>Foodie</title>
 	<link href="/compiled.css" rel="stylesheet">
 </head>
+
 <body>
-	<div id="food-item"></div>
+	<div class="album text-muted">
+		<div class="container">
+			<div class="row" id="row-container"></div>
+		</div>
+		<button class="btn btn-primary cart-btn" onclick="openModal();">Cart</button>
+	</div>
+	<div class="overlay is-hidden" id="overlay">
+		<div class="modal-content">
+			<span class="button-close" onclick="closeModal();"></span>
+			<div></div>
+			<table class="table">
+				<tbody id="cart-modal">
+					<thead>
+						<tr>
+							<th scope="col">Name</th>
+							<th scope="col">Image</th>
+							<th scope="col">Quantity</th>
+							<th scope="col">Remove</th>
+							<th scope="col">Add</th>
+							<th scope="col">Subtract</th>
+						</tr>
+					</thead>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
+
 </html>

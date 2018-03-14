@@ -23,6 +23,9 @@ export function removeQuantity(id) {
 	return db.cart.get(id)
 		.then((cart) => {
 			const quantity = --cart.quantity;
+			if(quantity <= 0){
+				return alert('can not be made less than 0.');
+			}
 			return db.cart.update(id, { quantity });
 		}).catch(() => {
 			return alert('element not present');
@@ -53,6 +56,5 @@ db.food.bulkAdd([
 	{ id: 11, name: 'Ice cream', url: 'http://media.hungryforever.com/wp-content/uploads/2016/02/04184729/Ice-Cream-In-Hyderabad.jpg', price: '$7' },
 	{ id: 12, name: 'Jilebi', url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBYsZjDSF2TKX43VFwvqVv2SDtzXp5fyrq6-G9gBIN3ajHxJSgXA', price: '$7' },
 	{ id: 13, name: 'Ice cream', url: 'http://media.hungryforever.com/wp-content/uploads/2016/02/04184729/Ice-Cream-In-Hyderabad.jpg', price: '$7' },
-	{ id: 14, name: 'Pulav', url: 'https://nishamadhulika.com/images/navratan-pulao-recipe.jpg', price: '$8' },
-	{ id: 15, name: 'Manchurian', url: 'https://2.bp.blogspot.com/-V0Fr_ufTp3c/WN6slehrp5I/AAAAAAAADIE/mv-x1LH3EXAKtz2DQ3DiX045cbnxR2M3wCLcB/s1600/egg%2Bmanchurian%2Brecipe.JPG', price: '$7' }
+	{ id: 14, name: 'Pulav', url: 'https://nishamadhulika.com/images/navratan-pulao-recipe.jpg', price: '$8' }
 ]).catch(() => { });
