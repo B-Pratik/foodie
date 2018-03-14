@@ -1,10 +1,19 @@
-window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
-window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction ||
-	window.msIDBTransaction || { READ_WRITE: 'readwrite' };
-	 // This line should only be needed if it is needed to support the object's constants for older browsers
-window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
-
 import C from './home/home-page';
+import {getAllFood, addToCart, addQuantity, getCart} from './database/handler';
 
-const c = new C();
-c.status;
+getAllFood()
+	.then((allFood)=>{
+		const first = allFood[0];
+		return true;
+	})
+	.then(()=>{
+		return addQuantity(0);
+	})
+	.then(()=>{
+		return getCart();
+	})
+	.then((allCart)=>{
+		const foodTray = document.getElementById('food-item');
+		foodTray.innerHTML = allCart.map((e)=>e.quantity).join();
+	})
+	.catch(console.error);
