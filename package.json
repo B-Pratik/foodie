@@ -1,0 +1,23 @@
+{
+  "name": "foodie",
+  "version": "1.0.0",
+  "description": "food ordering app",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/B-Pratik/foodie.git"
+  },
+  "keywords": [
+    "food",
+    "foodie"
+  ],
+  "author": "Pratik Bhurewar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/B-Pratik/foodie/issues"
+  },
+  "homepage": "https://github.com/B-Pratik/foodie#readme"
+}
