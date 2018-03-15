@@ -59,4 +59,5 @@ typings/
 
 # build folder
 build/
-!./build/favicon.ico
+!build/favicon.ico
+!build/compiled.css
