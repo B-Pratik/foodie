@@ -4,7 +4,7 @@ const path = require('path');
 
 const config = {
 	entry: {
-		app: path.resolve('source', 'src-code/app.js')
+		app: ['webpack-hot-middleware/client', path.resolve('source', 'src-code/app.js')]
 	},
 	output: {
 		path: path.resolve('build'),
@@ -51,6 +51,7 @@ const config = {
 			template: path.resolve('source', 'src-code/index.html'),
 			inject: 'body'
 		}),
+		new webpack.HotModuleReplacementPlugin(),
 		new webpack.LoaderOptionsPlugin({
 			options: {
 				handlebarsLoader: {}
