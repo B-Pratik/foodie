@@ -47,6 +47,14 @@ export default class Cart {
 		const dbConnection = new DBConnection();
 		return dbConnection.getCart()
 			.then(this.emptyCart)
+			.then((v) => {
+				return new Promise((resolve) => {
+					// breath time for ui
+					return setTimeout(()=>{
+						return resolve(v);
+					}, 0);
+				});
+			})
 			.then(this.fillCart)
 			.then(() => {
 				return new Promise((resolve) => {

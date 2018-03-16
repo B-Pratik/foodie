@@ -29,10 +29,13 @@ export default class DBConnection {
 		return this.connection.cart.toArray();
 	}
 
-	addToCart(item) {
-		item.quantity = 1;
-		// manually add 1 quantity to the cart.
-		return this.connection.cart.add(item);
+	addToCart(index) {
+		return this.connection.food.get(index)
+			.then((item) => {
+				item.quantity = 1;
+				// manually add 1 quantity to the cart.
+				return this.connection.cart.add(item);
+			})
 	}
 
 	addQuantity(id) {

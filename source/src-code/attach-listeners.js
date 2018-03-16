@@ -1,24 +1,38 @@
 import Cart from './cart/load-cart';
-import Food from './food/food-item';
+import DBConnection from './database/handler';
 
-export function listener() {
-	window.openModal = function() {
-		const overlay = document.getElementById('overlay');
-		const cart = new Cart();
-		cart.refreshCart();
-		overlay.classList.remove('is-hidden');
-	};
+export default class Listeners {
+	constructor() {
+	}
+	setModalListener() {
+		document.querySelector('button.cart-btn').addEventListener('click', () => {
+			const overlay = document.getElementById('overlay');
+			const cart = new Cart();
+			cart.refreshCart();
+			overlay.classList.remove('is-hidden');
+		}, false);
+	}
 
-	window.closeModal = function() {
-		const overlay = document.getElementById('overlay');
-		overlay.classList.add('is-hidden');
-	};
-}
+	setCloseModalListener() {
+		document.querySelector('span.button-close').addEventListener('click', () => {
+			const overlay = document.getElementById('overlay');
+			overlay.classList.add('is-hidden');
+		}, false);
+	}
 
-export function addElementsToView(array) {
-	const container = document.getElementById('row-container');
-	array.forEach(_food => {
-		const food = new Food(_food);
-		container.insertAdjacentHTML('afterbegin', food.element);
-	});
+	setAddToCartListener() {
+		document.querySelectorAll('button.add-cart').forEach((_ele) => {
+			_ele.addEventListener('click', (e) => {
+				const index = parseInt(e.target.dataset.vid);
+				const dbConnection = new DBConnection();
+				dbConnection.addToCart(index);
+			}, false);
+		})
+	}
+
+	setAllListeners() {
+		this.setModalListener();
+		this.setCloseModalListener();
+		this.setAddToCartListener();
+	}
 }
