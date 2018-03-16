@@ -19,6 +19,6 @@ export function addElementsToView(array) {
 	const container = document.getElementById('row-container');
 	array.forEach(_food => {
 		const food = new Food(_food);
-		container.appendChild(food.element);
+		container.insertAdjacentHTML('afterbegin', food.element);
 	});
 }

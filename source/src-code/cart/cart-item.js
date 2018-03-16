@@ -1,8 +1,9 @@
-import { removeFromCart, addQuantity, removeQuantity } from '../database/handler';
+import DBConnection from '../database/handler';
 import rowView from './views/cart-view.handlebars';
 
 export default class CartItem {
 	constructor() {
+		this.dbConnection = new DBConnection();
 	}
 
 	createCartItem(cart) {
@@ -12,7 +13,7 @@ export default class CartItem {
 
 	removeFromCart(e) {
 		const element = e.target;
-		return removeFromCart(parseInt(element.dataset.vid))
+		return this.dbConnection.removeFromCart(parseInt(element.dataset.vid))
 			.then(() => {
 				return element.closest('tbody').removeChild(element.closest('tr'));
 			});
@@ -20,7 +21,7 @@ export default class CartItem {
 
 	addQuantity(e) {
 		const element = e.target;
-		return addQuantity(parseInt(element.dataset.vid))
+		return this.dbConnection.addQuantity(parseInt(element.dataset.vid))
 			.then(() => {
 				const target = element.closest('tr').childNodes[5];
 				let quantity = parseInt(target.innerText);
@@ -32,7 +33,7 @@ export default class CartItem {
 
 	subtractQuantity(e) {
 		const element = e.target;
-		return removeQuantity(parseInt(element.dataset.vid))
+		return this.dbConnection.removeQuantity(parseInt(element.dataset.vid))
 			.then(() => {
 				const target = element.closest('tr').childNodes[5];
 				let quantity = parseInt(target.innerText);

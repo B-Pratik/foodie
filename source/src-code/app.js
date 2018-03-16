@@ -1,6 +1,7 @@
-import {getAllFood} from './database/handler';
+import DBConnection from './database/handler';
 import {addElementsToView, listener} from './attach-listeners';
 
-getAllFood()
+new DBConnection()
+	.getAllFood()
 	.then(addElementsToView)
 	.then(listener);

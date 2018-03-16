@@ -1,10 +1,17 @@
 import Dexie from 'dexie';
 
-const db = new Dexie('MyDatabase');
+export default class DBDriver {
+	constructor() {
+		if(this._connection === undefined){
+			this._connection = new Dexie('MyDatabase');
+			this._connection.version(1).stores({
+				food: 'id, name',
+				cart: 'id'
+			});
+		}
+	}
 
-db.version(1).stores({
-    food: 'id, name',
-    cart: 'id'
-});
-
-export default db;
+	get connection() {
+		return this._connection;
+	}
+}

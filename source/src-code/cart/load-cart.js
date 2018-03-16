@@ -1,4 +1,4 @@
-import { getCart } from '../database/handler';
+import DBConnection from '../database/handler';
 import CartItem from './cart-item';
 
 export default class Cart {
@@ -18,32 +18,34 @@ export default class Cart {
 
 	fillCart(allRecords) {
 		const cartModal = document.getElementById('cart-modal');
-		allRecords.forEach((_cart) => {
+		allRecords.forEach((_item) => {
 			const cart = new CartItem();
-			cartModal.insertAdjacentHTML('afterbegin', cart.getCartElement(_cart));
+			cartModal.insertAdjacentHTML('afterbegin', cart.createCartItem(_item));
 			//cartModal.appendChild(cart.element);
 		});
 	}
 
 	attachListeners() {
+		const cart = new CartItem();
 		const allRemove = document.querySelectorAll('.remove-cart');
 		allRemove.forEach((_ele) => {
-			_ele.addEventListener('click', CartItem.removeFromCart, false);
+			_ele.addEventListener('click', cart.removeFromCart, false);
 		});
 
 		const allAdd = document.querySelectorAll('.add-quantity');
 		allAdd.forEach((_ele) => {
-			_ele.addEventListener('click', CartItem.addQuantity, false);
+			_ele.addEventListener('click', cart.addQuantity, false);
 		});
 
 		const allSubtract = document.querySelectorAll('.subtract-quantity');
 		allSubtract.forEach((_ele) => {
-			_ele.addEventListener('click', CartItem.subtractQuantity, false);
+			_ele.addEventListener('click', cart.subtractQuantity, false);
 		});
 	}
 
 	refreshCart() {
-		return getCart()
+		const dbConnection = new DBConnection();
+		return dbConnection.getCart()
 			.then(this.emptyCart)
 			.then(this.fillCart)
 			.then(() => {
