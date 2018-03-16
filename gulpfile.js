@@ -9,11 +9,17 @@ var URL = { host: argv.host || 'localhost', port: argv.port || process.env.PORT 
 
 gulp.task('build', function (cb) {
     var compiler = webpack(require('./compiler/webpack-config.js'));
-    compiler.run(function (err) {
-        if (err) {
-            console.error(err.message);
-        }
-        cb();
+    compiler.run(function (error, stats) {
+        if (error) { // fatal error
+            console.error(error);
+        } else if ( stats.hasErrors() ) {
+			console.error(stats.toString({
+				colors: true,
+				reasons: true
+			}));
+        } else {
+			return cb();
+		}
     });
 });
 

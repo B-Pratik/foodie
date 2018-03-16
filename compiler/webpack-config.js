@@ -33,11 +33,12 @@ const config = {
 				use: 'url?name=assets/[name]-[hash].[ext]&limit=100000'
 			},
 			{
-				test: /\.html$/,
-				use: 'html',
+				test: /\.(html)$/,
+				use: 'html-loader',
 				include: path.resolve('source', 'src-code'),
 				exclude: path.resolve('source', 'src-code/index.html')
-			}
+			},
+			{ test: /\.handlebars$/, loader: "handlebars-loader" }
 		]
 	},
 	plugins: [
@@ -49,9 +50,13 @@ const config = {
 		new HtmlWebpackPlugin({
 			template: path.resolve('source', 'src-code/index.html'),
 			inject: 'body'
+		}),
+		new webpack.LoaderOptionsPlugin({
+			options: {
+				handlebarsLoader: {}
+			}
 		})
-	],
-	bail: true
+	]
 };
 
 module.exports = config;
