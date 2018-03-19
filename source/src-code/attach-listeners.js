@@ -20,19 +20,8 @@ export default class Listeners {
 		}, false);
 	}
 
-	setAddToCartListener() {
-		document.querySelectorAll('button.add-cart').forEach((_ele) => {
-			_ele.addEventListener('click', (e) => {
-				const index = parseInt(e.target.dataset.vid);
-				const dbConnection = new DBConnection();
-				dbConnection.addToCart(index);
-			}, false);
-		})
-	}
-
 	setAllListeners() {
 		this.setModalListener();
 		this.setCloseModalListener();
-		this.setAddToCartListener();
 	}
 }

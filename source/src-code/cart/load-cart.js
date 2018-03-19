@@ -3,7 +3,6 @@ import CartItem from './cart-item';
 
 export default class Cart {
 	constructor() {
-		this.refreshCart();
 	}
 
 	emptyCart(records) {
@@ -24,24 +23,6 @@ export default class Cart {
 			cartModal.appendChild(cart.element);
 		});
 	}
-
-	// attachListeners() {
-	// 	const cart = new CartItem();
-	// 	const allRemove = document.querySelectorAll('.remove-cart');
-	// 	allRemove.forEach((_ele) => {
-	// 		_ele.addEventListener('click', cart.removeFromCart.bind(cart), false);
-	// 	});
-
-	// 	const allAdd = document.querySelectorAll('.add-quantity');
-	// 	allAdd.forEach((_ele) => {
-	// 		_ele.addEventListener('click', cart.addQuantity.bind(cart), false);
-	// 	});
-
-	// 	const allSubtract = document.querySelectorAll('.subtract-quantity');
-	// 	allSubtract.forEach((_ele) => {
-	// 		_ele.addEventListener('click', cart.subtractQuantity.bind(cart), false);
-	// 	});
-	// }
 
 	refreshCart() {
 		const dbConnection = new DBConnection();

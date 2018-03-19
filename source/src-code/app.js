@@ -18,7 +18,7 @@ new class Initiate {
 		const container = document.getElementById('row-container');
 		allFood.forEach(_food => {
 			const food = new Food(_food);
-			container.insertAdjacentHTML('afterbegin', food.element);
+			container.appendChild(food.element);
 		});
 		return true;
 	}
