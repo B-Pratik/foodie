@@ -57,7 +57,8 @@ const config = {
 				handlebarsLoader: {}
 			}
 		})
-	]
+	],
+	mode: 'development'
 };
 
 module.exports = config;
