@@ -18,7 +18,7 @@ export default class DBConnection {
 				{ id: 10, name: 'Dosa', url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDs84glIb4mF2gPXGPl91EFdHBMfnqJ3ZpUi_x3-upGDcTsDlH', price: '$8' },
 				{ id: 11, name: 'Ice cream', url: 'http://media.hungryforever.com/wp-content/uploads/2016/02/04184729/Ice-Cream-In-Hyderabad.jpg', price: '$7' },
 				{ id: 12, name: 'Jilebi', url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBYsZjDSF2TKX43VFwvqVv2SDtzXp5fyrq6-G9gBIN3ajHxJSgXA', price: '$7' },
-				{ id: 13, name: 'Ice cream', url: 'http://media.hungryforever.com/wp-content/uploads/2016/02/04184729/Ice-Cream-In-Hyderabad.jpg', price: '$7' },
+				{ id: 13, name: 'Pani Puri', url: 'http://3.bp.blogspot.com/-fUd0rrBYpF8/Uy2KbhoTTVI/AAAAAAAAO48/v5p-8ujn3XU/s1600/IMG_2803.jpg', price: '$3' },
 				{ id: 14, name: 'Pulav', url: 'https://nishamadhulika.com/images/navratan-pulao-recipe.jpg', price: '$8' }
 			]).catch(() => { });
 		}

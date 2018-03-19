@@ -1,13 +1,17 @@
 import DBConnection from '../database/handler';
 import rowView from './views/cart-view.handlebars';
+import Parser from './../utils/dom-parser';
 
 export default class CartItem {
-	constructor() {
+	constructor(cart) {
 		this.dbConnection = new DBConnection();
+		this._element = new Parser().parseString(rowView(cart));
+		this._element.querySelector('.remove-cart').onclick = this.removeFromCart.bind(this);
+		this._element.querySelector('.add-quantity').onclick = this.addQuantity.bind(this);
+		this._element.querySelector('.subtract-quantity').onclick = this.subtractQuantity.bind(this);
 	}
 
-	createCartItem(cart) {
-		this._element = rowView(cart);
+	get element(){
 		return this._element;
 	}
 
