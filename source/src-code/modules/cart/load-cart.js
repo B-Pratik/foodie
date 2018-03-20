@@ -1,4 +1,4 @@
-import DBConnection from '../database/handler';
+import DBConnection from '../../database/handler';
 import CartItem from './cart-item';
 
 export default class Cart {
@@ -19,7 +19,6 @@ export default class Cart {
 		const cartModal = document.getElementById('cart-modal');
 		allRecords.forEach((_item) => {
 			const cart = new CartItem(_item);
-			//cartModal.insertAdjacentHTML('afterbegin', cart.createCartItem(_item));
 			cartModal.appendChild(cart.element);
 		});
 	}

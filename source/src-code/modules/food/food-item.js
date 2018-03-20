@@ -1,6 +1,6 @@
-import DBConnection from '../database/handler';
+import DBConnection from '../../database/handler';
 import foodView from './views/food-view.handlebars';
-import Parser from './../utils/dom-parser';
+import Parser from '../../utils/dom-parser';
 
 export default class Food {
 	constructor(food) {

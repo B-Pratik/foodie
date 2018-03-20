@@ -1,12 +1,11 @@
+import './customs/cart/cart-element';
 import DBConnection from './database/handler';
-import Listeners from './attach-listeners';
-import Food from './food/food-item';
+import Food from './modules/food/food-item';
 
 new class Initiate {
 	constructor() {
 		this.prepareData()
-			.then(this.fillData)
-			.then(this.addListeners)
+			.then(this.fillData);
 	}
 
 	prepareData() {
@@ -21,9 +20,5 @@ new class Initiate {
 			container.appendChild(food.element);
 		});
 		return true;
-	}
-
-	addListeners(){
-		new Listeners().setAllListeners();
 	}
 }();

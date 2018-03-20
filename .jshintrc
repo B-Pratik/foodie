@@ -68,5 +68,5 @@
 	"worker": false,
 	"wsh": false,
 	"yui": false,
-	"globals": {}
+	"globals": {"customElements":true}
 }

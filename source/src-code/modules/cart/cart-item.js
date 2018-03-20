@@ -1,6 +1,6 @@
-import DBConnection from '../database/handler';
+import DBConnection from '../../database/handler';
 import rowView from './views/cart-view.handlebars';
-import Parser from './../utils/dom-parser';
+import Parser from '../../utils/dom-parser';
 
 export default class CartItem {
 	constructor(cart) {
